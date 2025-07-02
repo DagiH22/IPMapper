@@ -11,8 +11,8 @@ function App() {
         <div className='nonMap'>
           <h1>IPMapper</h1>
           <SearchInput/>
-          <InfoCard/>
         </div>
+          <InfoCard/>
         <MapArea></MapArea>
       </div>
     </>

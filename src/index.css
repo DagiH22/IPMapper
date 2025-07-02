@@ -11,8 +11,5 @@ body{
     width: 100vw;
     color: hsl(0, 0%, 17%);
     font-family: "Rubik", sans-serif;
-    background: url(./assets/images/pattern.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
 
 }

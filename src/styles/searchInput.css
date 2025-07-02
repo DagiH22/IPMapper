@@ -1,6 +1,8 @@
 .searchBar{
-    width: 50%;
-    height: 2.5rem;
+    width: 40%;
+    height: 20%;
+    max-height: 3.5rem;
+    min-height: 18px;
     display: flex;
 }
 .searchInput{
@@ -28,4 +30,27 @@
     border-radius: 0 10px 10px 0;
     background-color: black;
     cursor: pointer;
+    transition: background-color 200ms ease;
+}
+.goBtn:hover{
+    background-color: hsl(0, 0%, 17%);
+}
+@media (min-width: 760px) and (max-width: 1025px){
+    .searchBar{
+        width: 60%;
+    }
+  }
+@media (min-width: 601px) and (max-width: 900px){
+    .searchBar{
+        width: 70%;
+    }
+}
+@media (max-width: 600px) {
+    .searchBar{
+        width: 85%;
+        height: 15%;
+    }
+    #ipInput{
+        font-size: 100%;
+    }
 }
