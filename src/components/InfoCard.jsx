@@ -1,12 +1,7 @@
 import React from 'react'
 import '../styles/infoCard.css'
-import { useState,useEffect } from "react";
-// import api from '../services/api.js';
 
-
-
-function InfoCard(data) {
- 
+function InfoCard({data}) {
   return (
     <section className='infoContainer'>
         <div className='ipAddress'>
@@ -30,13 +25,3 @@ function InfoCard(data) {
 }
 
 export default InfoCard
-// <>
-//     <div>
-//         <ul>
-//             { 
-//             data.map((da)=>{
-//                 return <li key={da.id}>{da.name}</li>
-//             })}
-//         </ul>
-//     </div>
-// </>
