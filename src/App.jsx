@@ -4,6 +4,8 @@ import SearchInput from './components/SearchInput.jsx'
 import MapArea from './components/mapArea.jsx'
 import api from './services/api.js'
 import { useState,useEffect } from 'react'
+import 'leaflet/dist/leaflet.css';
+
 
 function App() {
   const [result,setResult] =useState()
@@ -41,7 +43,7 @@ function App() {
         </div>
         {error && <p>Error: {error}</p>}
         {result && <InfoCard data={result} />}
-        <MapArea></MapArea>
+        {result &&<MapArea data={result}/>}
       </div>
     </>
   )
