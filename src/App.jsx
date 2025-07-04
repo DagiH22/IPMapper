@@ -3,7 +3,7 @@ import InfoCard from './components/InfoCard.jsx'
 import SearchInput from './components/SearchInput.jsx'
 import MapArea from './components/mapArea.jsx'
 import api from './services/api.js'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 function App() {
   const [result,setResult] =useState()
@@ -26,6 +26,7 @@ function App() {
       const res = await api(ipOrDomain)
       setResult(res)
       setError(null)
+      console.log('this is res \n',res)
     } catch (err) {
       setError(err.message)
       setResult(null)
@@ -38,7 +39,8 @@ function App() {
           <h1>IPMapper</h1>
           <SearchInput onSearch={handleSearch}/>
         </div>
-          <InfoCard api ={result}/>
+        {error && <p>Error: {error}</p>}
+        {result && <InfoCard data={result} />}
         <MapArea></MapArea>
       </div>
     </>

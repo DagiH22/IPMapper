@@ -6,7 +6,7 @@ import { useState,useEffect } from "react";
 
 
 function InfoCard(data) {
-
+ 
   return (
     <section className='infoContainer'>
         <div className='ipAddress'>
@@ -15,7 +15,7 @@ function InfoCard(data) {
         </div>
         <div className='location'>
             <h4>LOCATION</h4>
-            <p>{data.location.region}</p>
+            <p>{data.location.country}</p>
         </div>
         <div className='timezone'>
             <h4>TIMEZONE</h4> 
