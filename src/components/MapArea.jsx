@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import locationIcon from '../assets/images/icon-location.svg'
 function MapArea({data}) {
   const mapRef = useRef(null)
+  const location = data.location
   const lat = data.location.lat
   const lng = data.location.lng
   useEffect(() => {

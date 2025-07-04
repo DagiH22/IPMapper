@@ -10,7 +10,7 @@ function InfoCard({data}) {
         </div>
         <div className='location'>
             <h4>LOCATION</h4>
-            <p>{data.location.country}</p>
+            <p>{data.location.region},{data.location.city}</p>
         </div>
         <div className='timezone'>
             <h4>TIMEZONE</h4> 
