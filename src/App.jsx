@@ -2,17 +2,43 @@ import './styles/App.css'
 import InfoCard from './components/InfoCard.jsx'
 import SearchInput from './components/SearchInput.jsx'
 import MapArea from './components/mapArea.jsx'
+import api from './services/api.js'
+import { useState } from 'react'
 
 function App() {
+  const [result,setResult] =useState()
+  const [error, setError] = useState(null) //rememebr to make error page 
 
+  useEffect(() => {
+    const fetchUserIP = async () => {
+      try {
+        const data = await api() 
+        setResult(data)
+      } catch (err) {
+        setError(err.message)
+      }
+    }
+    fetchUserIP()
+  }, [])
+
+  const handleSearch = async (ipOrDomain) => {
+    try {
+      const res = await api(ipOrDomain)
+      setResult(res)
+      setError(null)
+    } catch (err) {
+      setError(err.message)
+      setResult(null)
+    }
+  }
   return (
     <>
       <div className='container'>
         <div className='nonMap'>
           <h1>IPMapper</h1>
-          <SearchInput/>
+          <SearchInput onSearch={handleSearch}/>
         </div>
-          <InfoCard/>
+          <InfoCard api ={result}/>
         <MapArea></MapArea>
       </div>
     </>
