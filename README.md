@@ -1,12 +1,78 @@
-# React + Vite
+# 🌍 IPMapper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**IPMapper** is a frontend web application that allows users to locate the geographical position of an IP address or domain name on an interactive map. On initial load, it automatically detects and displays the user’s own IP location. The app is built using **React**, **LeafletJS**, and the **IPify Geolocation API**, and styled with modern **HTML**, **CSS**, and **JavaScript** best practices.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔎 **Search by IP or Domain**  
+  Enter any valid IP address or domain name to view its geolocation.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🗺️ **Interactive Map**  
+  Displays results on a map using **LeafletJS** with **CartoDB Positron tiles** for clean visuals.
+
+- 🌐 **Auto-Locate User on Load**  
+  Automatically fetches and displays the current user’s public IP location on app launch.
+
+- 📱 **Responsive Design**  
+  Fully mobile-friendly layout for a great experience on all devices.
+
+- ❌ **Robust Error Handling**  
+  Gracefully handles invalid input, API limits, network errors, and more — with user-friendly messages.
+
+- ✨ **Modern Front-End Stack**  
+  Built with React functional components and hooks for maintainability and performance.
+
+---
+
+## 🧪 Tech Stack
+
+- **React** (JavaScript framework)
+- **LeafletJS** (interactive map rendering)
+- **CartoDB** (map tile provider)
+- **IPify Geolocation API** (IP & domain geolocation)
+- **HTML5**, **CSS3**, **JavaScript (ES6+)**
+
+---
+
+## 📸 Screenshots
+
+![App Screenshot](public/screenshot.png)
+
+![Error Page](public/errorPage.png)
+
+
+
+
+---
+## ⚠️ Notes
+The app uses the IPify Geolocation API — a valid API key is required.
+
+Free-tier keys have usage limits. If the app shows a message like “Free API usage limit reached”, it means the quota has been exhausted.
+
+Location accuracy may vary depending on IP address and provider.
+
+## 🔧 Setup & Installation
+
+1. **Clone the repo**
+   ```bash
+   git clone [https://github.com/yourusername/ipmapper.git](https://github.com/DagiH22/IPMapper.git)
+   cd ipmapper
+   ```
+2. **Install dependencies**
+   ```bash
+    npm install
+   ```
+3. **Add your IPify API Key**
+    Create a .env file in the root directory:
+    VITE_IP_API_KEY=your_api_key_here
+4. **Start the development server**
+   ```bash
+     npm run dev
+   ```
+5. **Open in browser at http://localhost:5173 (or whatever Vite shows).**
+
+   
+Made with 💻, 🗺️, and ☕ by [Dagmawi](https://github.com/DagiH22)
+   
