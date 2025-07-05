@@ -1,4 +1,5 @@
 # 🌍 IPMapper
+**Live Demo**: [ipmapper.netlify.app](https://ipmapper.netlify.app)
 
 **IPMapper** is a frontend web application that allows users to locate the geographical position of an IP address or domain name on an interactive map. On initial load, it automatically detects and displays the user’s own IP location. The app is built using **React**, **LeafletJS**, and the **IPify Geolocation API**, and styled with modern **HTML**, **CSS**, and **JavaScript** best practices.
 
