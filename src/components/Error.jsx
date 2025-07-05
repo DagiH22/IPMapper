@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/error.css'
 
 function Error({err}) {
     let formattedMessage = {}
@@ -26,7 +27,9 @@ function Error({err}) {
       else {
         formattedMessage = {
           title: 'Something went wrong',
-          message: err.message || 'Unknown error occurred.',
+          message: typeof err?.message === 'string'
+            ? err.message
+            : 'Unknown error occurred.',
         }
       }
 

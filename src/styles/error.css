@@ -5,6 +5,9 @@
     align-self: flex-end;
     position: relative;
     z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 h2{
     color: red;
