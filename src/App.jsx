@@ -26,7 +26,8 @@ function App() {
     hasFetchedRef.current = true
     const fetchUserIP = async () => {
       try {
-        const data = await api() 
+        const inpt = {type:'ip',input : ''}
+        const data = await api(inpt) 
         setResult(data)
         setError(null)
       } 
@@ -56,7 +57,8 @@ function App() {
   }, [])
   
   const handleSearch = async (ipOrDomain) => {
-    if (!isValidInput(ipOrDomain)) {
+    const valid = isValidInput(ipOrDomain)
+    if (valid === 'invalid') {
       setError({
         title: 'Invalid Input',
         message: 'Please enter a valid IP address or domain name.',
@@ -67,7 +69,15 @@ function App() {
     }
   
     try {
-      const res = await api(ipOrDomain)
+      let res 
+      if (valid === 'ip'){
+        const inpt = {type:'ip',input : ipOrDomain}
+        res = await api(inpt)
+      }
+      else{
+        const inpt = {type:'domain',input : ipOrDomain}
+        res = await api(inpt)
+      } 
       setResult(res)
       setError(null)
     } 

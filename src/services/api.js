@@ -1,7 +1,13 @@
 const API_KEY = import.meta.env.VITE_IP_API_KEY
 
-async function api(ipOrDomain='') {
-    const uri = `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}${ipOrDomain ? `&ipAddress=${ipOrDomain}` : ''}`
+async function api({type,input}) {
+  let uri = ''
+  if(type === 'ip'){
+     uri = `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}${input ? `&ipAddress=${input}` : ''}`
+  }
+  else{
+     uri = `https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}&domain=${input}`
+  }
     
     try {
         const res = await fetch(uri)

@@ -11,7 +11,7 @@ function Error({err}) {
       } else if (err.status === 403) {
         formattedMessage = {
           title: 'Access Denied',
-          message: 'Sorry we ran out of ',
+          message: 'This app has exceeded its free api usage limit. Please contact the developer.',
         }
       } else if (err.status === 429) {
         formattedMessage = {
@@ -35,8 +35,10 @@ function Error({err}) {
 
   return (
     <div className='error'>
-        <h2>{formattedMessage.title}</h2>
-        <p>{formattedMessage.message}</p>
+        <div className='cont'>
+            <h2>{formattedMessage.title} - {err.status}</h2>
+            <p>{formattedMessage.message}</p>
+        </div>
     </div>
   )
 }
