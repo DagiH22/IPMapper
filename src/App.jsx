@@ -7,6 +7,7 @@ import { useState,useEffect,useRef } from 'react'
 import 'leaflet/dist/leaflet.css';
 
 
+
 function App() {
   const [result,setResult] =useState()
   const [error, setError] = useState(null) //rememebr to make error page 
@@ -18,21 +19,22 @@ function App() {
       try {
         const data = await api() 
         setResult(data)
+        setError(null)
       } catch (err) {
-        setError(err.message)
+        setError(err)
+        setResult(null)
       }
     }
     fetchUserIP()
   }, [])
-
+  
   const handleSearch = async (ipOrDomain) => {
     try {
       const res = await api(ipOrDomain)
       setResult(res)
       setError(null)
-      console.log('this is res \n',res)
     } catch (err) {
-      setError(err.message)
+      setError(err)
       setResult(null)
     }
   }
@@ -43,9 +45,10 @@ function App() {
           <h1>IPMapper</h1>
           <SearchInput onSearch={handleSearch}/>
         </div>
-        {error && <p>Error: {error}</p>}
+        {error && <Error err={error}/>}
+        {/* {error && <p>Error: {error}</p>} */}
         {result && <InfoCard data={result} />}
-        {result &&<MapArea data={result}/>}
+        {result && <MapArea data={result}/>}
       </div>
     </>
   )
