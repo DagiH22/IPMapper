@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Error({err}) {
+    let formattedMessage = {}
     if (err.status === 'N/A') {
         formattedMessage = {
           title: 'Network Error',

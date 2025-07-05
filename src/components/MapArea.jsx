@@ -11,6 +11,7 @@ function MapArea({data}) {
   useEffect(() => {
     const map = L.map('map').setView([lat, lng], 13); 
     if (mapRef.current) return;
+    mapRef.current = map
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap & CartoDB',
     }).addTo(map)
@@ -33,6 +34,3 @@ function MapArea({data}) {
   )
 }
 export default MapArea
-
-
-

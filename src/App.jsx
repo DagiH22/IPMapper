@@ -5,6 +5,7 @@ import MapArea from './components/mapArea.jsx'
 import api from './services/api.js'
 import { useState,useEffect,useRef } from 'react'
 import 'leaflet/dist/leaflet.css';
+import isValidInput from './utils/validateInput.js'
 
 
 
@@ -13,6 +14,13 @@ function App() {
   const [error, setError] = useState(null) //rememebr to make error page 
   const hasFetchedRef = useRef(false)
   useEffect(() => {
+    if (!navigator.onLine) {
+      setError({
+        title: 'Offline',
+        message: 'You are currently offline. Please check your internet connection.',
+      });
+      return;
+    }
     if (hasFetchedRef.current) return
     hasFetchedRef.current = true
     const fetchUserIP = async () => {
@@ -29,6 +37,16 @@ function App() {
   }, [])
   
   const handleSearch = async (ipOrDomain) => {
+    if (!isValidInput(ipOrDomain)) {
+      setError({
+        title: 'Invalid Input',
+        message: 'Please enter a valid IP address or domain name.',
+        status:400,
+      });
+      setResult(null);
+      return;
+    }
+  
     try {
       const res = await api(ipOrDomain)
       setResult(res)
@@ -46,9 +64,8 @@ function App() {
           <SearchInput onSearch={handleSearch}/>
         </div>
         {error && <Error err={error}/>}
-        {/* {error && <p>Error: {error}</p>} */}
         {result && <InfoCard data={result} />}
-        {result && <MapArea data={result}/>}
+        {result && !error && result.location && <MapArea data={result}/>}
       </div>
     </>
   )
