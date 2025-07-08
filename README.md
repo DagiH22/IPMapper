@@ -33,6 +33,7 @@
 - **LeafletJS** (interactive map rendering)
 - **CartoDB** (map tile provider)
 - **IPify Geolocation API** (IP & domain geolocation)
+- **Google DNS over HTTPS API** (used to resolve domain names to IP addresses)
 - **HTML5**, **CSS3**, **JavaScript (ES6+)**
 
 ---
@@ -48,7 +49,9 @@
 
 ---
 ## ⚠️ Notes
-The app uses the IPify Geolocation API — a valid API key is required.
+The app uses the IPify Geolocation API to retrieve location data based on IP addresses. For domain name searches, it first resolves the domain to an IP address using the Google DNS over HTTPS API, then fetches its geolocation.
+
+A valid API key is required.
 
 Free-tier keys have usage limits. If the app shows a message like “Free API usage limit reached”, it means the quota has been exhausted.
 
