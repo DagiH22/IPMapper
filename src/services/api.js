@@ -17,7 +17,6 @@ async function  api({type,input}) {
         throw new Error('No A record found for domain')
       }
     } catch (err) {
-      console.log('DNS resolve error:', err.message)
       throw err
     }
     uri = `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${theIP}`
