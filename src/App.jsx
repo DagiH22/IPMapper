@@ -8,8 +8,6 @@ import api from './services/api.js'
 import isValidInput from './utils/validateInput.js'
 import Error from './components/Error.jsx';
 
-
-
 function App() {
   const [result,setResult] =useState()
   const [error, setError] = useState(null) //rememebr to make error page 
@@ -82,7 +80,6 @@ function App() {
       setError(null)
     } 
       catch (err) {
-        // Normalize error into an object with known shape
         const normalizedError = {
           title: 'Something went wrong',
           message: '',
@@ -98,13 +95,9 @@ function App() {
         } else {
           normalizedError.message = 'Unknown error occurred.';
         }
-      
-        // You can add cases for specific status codes here too
-      
         setError(normalizedError);
         setResult(null);
       }
-    
   }
   return (
     <>

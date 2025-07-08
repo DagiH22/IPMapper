@@ -28,7 +28,6 @@ function MapArea({data}) {
   }, [location]);
   return (
     <div id='map'>
-
     </div>
   )
 }

@@ -8,13 +8,11 @@ async function  api({type,input}) {
   }
   else {
     const googleResolve = `https://dns.google/resolve?name=${input}&type=A`
-    console.log('reached here')
     try {
       const res = await fetch(googleResolve)
       const d = await res.json()
       if (d.Answer && d.Answer.length > 0) {
         theIP = d.Answer[0].data
-        console.log(theIP)
       } else {
         throw new Error('No A record found for domain')
       }
